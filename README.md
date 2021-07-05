@@ -21,6 +21,7 @@
 Если архив с симулятором был скачан в директорию `~/Downloads`, то установка производится следующими коммандами:
 
 ```bash
+cd ~/Downloads
 tar -Jxf CoppeliaSim_Edu_V4_2_0_Ubuntu20_04.tar.xz --directory=/path/to/your/folder
 ```
 
@@ -46,4 +47,23 @@ tar -Jxf CoppeliaSim_Edu_V4_2_0_Ubuntu20_04.tar.xz --directory=/path/to/your/fol
 
 ## Запуск среды симуляции и готовых компонент
 
+Для работы предоставляется готовый docker-образ с предустановленными компонентами построения карты занятости, планирования траектории и др.
+
+Готовый образ можно установить командой:
+```bash
+docker pull registry.gitlab.com/raai_planning_workshop/planning_with_thunder
+```
+
+Для запуска и входа в контейнер предоставляются готовые скрипты в папке [./docker](./docker):
+```bash
+# start container
+./docker/start.sh
+
+# get into container
+./docker/into.sh 
+```
+
+При запуске создается директория `./planning_with_thunder/workspace/src`, которая затем маунтится в контейнер, и в которой можно размещать исходный код.
+
+Также в контейнер маунтится папка [./launch](./launch), в которой расположены .launch-файлы для запуска предустановленых узлов.
 
