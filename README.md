@@ -95,4 +95,14 @@ docker pull registry.gitlab.com/raai_planning_workshop/planning_with_thunder
 
 Также в контейнер маунтится папка [./launch](./launch), в которой расположены .launch-файлы для запуска предустановленых узлов.
 
+Для запуска компонент внутри контейнера необходимо выполнить следующие команды:
+```bash
+source ~/catkin_ws/install/setup.bash
+# для запуска в режиме симуляции
+roslaunch ~/launch/sim.launch
+
+# для запуска на роботе
+roslaunch ~/launch/main.launch
+```
+
 ### Запуск среды визуализации RViz и управление платформой
