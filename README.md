@@ -7,7 +7,7 @@
 Для участия в семинаре необходимо установить следующее ПО (рекомендуется использовать дистрибутив [Ubuntu 20.04](https://releases.ubuntu.com/20.04/)):
 
 1. [ROS](http://wiki.ros.org/ROS/Installation) (для Ubuntu 20.04 версии [Noetic](http://wiki.ros.org/noetic/Installation)).
-2. Среду симуляции [CoppeliaSim](https://www.coppeliarobotics.com/downloads);
+2. Среду симуляции [CoppeliaSim Edu](https://www.coppeliarobotics.com/downloads);
 3. [Docker](https://docs.docker.com/engine/install/ubuntu/);
 
 ### Установка ROS
@@ -122,6 +122,19 @@ rviz
 Пример прохождения маршрута роботом:
 
 ![RViz example](docs/rviz.png)
+
+### Отладка в RQT
+
+Фреймворк RQT предоставляет широкий набор инструментов для отладки системы в виде GUI плагинов.
+
+Для запуска необходимо в отдельном терминале выполнить команду:
+```bash
+rqt
+```
+
+Все доступные инструменты сгруппированы в меню Plugins. Наиболее часто используемые плагины: Node Graph, Topic Monitor, Dynamic Reconfigure.
+
+![RQT example](docs/rqt.png)
 
 ## Задание
 
