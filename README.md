@@ -79,7 +79,7 @@ rostopic list
 
 Готовый образ можно установить командой:
 ```bash
-docker pull registry.gitlab.com/raai_planning_workshop/planning_with_thunder
+docker pull registry.gitlab.com/raai_planning_workshop/planning_with_thunder:latest
 ```
 
 Для запуска и входа в контейнер предоставляются готовые скрипты в папке [./docker](./docker):
