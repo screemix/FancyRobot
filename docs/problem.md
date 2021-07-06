@@ -21,7 +21,7 @@
 
 - [thunder_msgs/ThunderCommand](./../msgs/thunder_msgs/msg/ThunderControl.msg) - сообщение с командой управление башней-опрыскивателем. Публикуется в топик `/thunder/control_cmd`. Более подробное описание [ниже](#управление-башней-опрыскивателем-thunder).
 
-- [rtp_msgs/PathStamped](./../msgs/rtp_msgs/msg/PathStamped.msg) - сообщение с найденной траекторий движения. Публикуется в топик `/planner_sb_node/trajectory`. 
+- [rtp_msgs/PathStamped](./../msgs/rtp_msgs/msg/PathStamped.msg) - сообщение с найденной траекторией движения. Публикуется в топик `/planner_sb_node/trajectory`. 
 
 ### Управление башней-опрыскивателем Thunder
 
