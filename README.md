@@ -107,8 +107,9 @@ roslaunch ~/launch/main.launch
 ### Запуск среды визуализации RViz и управление платформой
 
 В терминале выполнить команду 
-
-rviz.
+```bash
+rviz
+```
 
 Открыть конфигурационный файл ./launch/config/rviz_config.rviz.
 
