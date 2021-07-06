@@ -98,16 +98,20 @@ docker pull registry.gitlab.com/raai_planning_workshop/planning_with_thunder:lat
 Для запуска компонент внутри контейнера необходимо выполнить следующие команды:
 ```bash
 source ~/catkin_ws/install/setup.bash
-# для запуска в режиме симуляции
-roslaunch ~/launch/sim.launch
-
-# для запуска на роботе
 roslaunch ~/launch/main.launch
 ```
 
 ### Запуск среды визуализации RViz и управление платформой
 
+Для запуска среды моделирования необходимо перейти в директорию, например
+cd ~/CoppeliaSim_Edu_V4_2_0_Ubuntu20_04
 
+Запуск среды моделирования выполняется скриптом
+./coppeliaSim.sh 
+
+Далее необходимо открыть сцену flat_polygon_hunter.ttt и для объекта "hull" прописать абсолютный путь к скрипту hunter_control_script.lua.
+
+![CoppeliaSim example](Cop.png)
 
 ## Управление башней-опрыскивателем Thunder
 
