@@ -21,8 +21,8 @@ t_positive: 0.3
 # if ang_start == ang_end then ang_start = -180 deg., ang_end = 180 deg. 
 # WARNING: angle start must be less then angle end
 sensor:
-  position: [ 0., 0.]                     # [x, y], meters
-  global_sector: [0., 0.]                 # [angle start, angle end], degrees
+  position: [ 0., 0.8]                     # [x, y], meters
+  global_sector: [45., 135.]                 # [angle start, angle end], degrees
   global_angle_resolution: 0.2            # raycast angle resolution, degrees
   min_points_range: 0.                    # meters
   global_raycast_range: 60.0              # meters

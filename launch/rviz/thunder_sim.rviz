@@ -7,9 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /OccupancyGrid1
-        - /Route1
-        - /Trajectory1
-        - /PredictionTrajectory1
+        - /Odometry1/Status1
       Splitter Ratio: 0.47356829047203064
     Tree Height: 677
   - Class: rviz/Selection
@@ -30,7 +28,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: Radar
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -57,22 +55,10 @@ Visualization Manager:
       Reference Frame: <Fixed Frame>
       Value: false
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        grid_origin:
-          Value: false
-        isns_link:
-          Value: true
-        local_map:
-          Value: false
-        map:
-          Value: false
-        sea_level:
-          Value: false
-        vlp16:
-          Value: false
       Marker Alpha: 1
       Marker Scale: 10
       Name: TF
@@ -80,17 +66,9 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        map:
-          local_map:
-            grid_origin:
-              {}
-            isns_link:
-              vlp16:
-                {}
-            sea_level:
-              {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
     - Class: rviz/Group
       Displays:
         - Alpha: 0.699999988079071
@@ -122,33 +100,68 @@ Visualization Manager:
         Min Value: -10
         Value: true
       Axis: Z
-      Channel Name: intensity
+      Channel Name: z
       Class: rviz/PointCloud2
       Color: 85; 255; 255
-      Color Transformer: FlatColor
+      Color Transformer: Intensity
       Decay Time: 0
-      Enabled: false
+      Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Min Color: 0; 0; 0
-      Name: VLP16
+      Name: Radar
       Position Transformer: XYZ
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.20000000298023224
+      Size (m): 0.05000000074505806
       Style: Flat Squares
-      Topic: /vlp16/velodyne_points
+      Topic: /radar/points
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: false
+      Value: true
+    - Angle Tolerance: 0.10000000149011612
+      Class: rviz/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.30000001192092896
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: true
+      Enabled: true
+      Keep: 1
+      Name: Odometry
+      Position Tolerance: 0.10000000149011612
+      Queue Size: 10
+      Shape:
+        Alpha: 1
+        Axes Length: 1
+        Axes Radius: 0.10000000149011612
+        Color: 255; 25; 0
+        Head Length: 0.30000001192092896
+        Head Radius: 0.10000000149011612
+        Shaft Length: 1
+        Shaft Radius: 0.05000000074505806
+        Value: Axes
+      Topic: /odometry
+      Unreliable: false
+      Value: true
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: /route_creator_node/visualize_route
       Name: Route
       Namespaces:
-        route: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -156,7 +169,7 @@ Visualization Manager:
       Marker Topic: /planning_node/path_visualization
       Name: Trajectory
       Namespaces:
-        planning: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -164,7 +177,7 @@ Visualization Manager:
       Marker Topic: /controller_node/prediction_trajectory
       Name: PredictionTrajectory
       Namespaces:
-        predicted_trajectory: true
+        {}
       Queue Size: 100
       Value: true
   Enabled: true
@@ -194,7 +207,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0
+      Angle: -1.5449990034103394
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
@@ -204,7 +217,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.4000000059604645
-      Scale: 28.392793655395508
+      Scale: 32.64738082885742
       Target Frame: local_map
       X: 7.5161237716674805
       Y: 0.8638619184494019
@@ -225,5 +238,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1920
-  X: 0
+  X: 72
   Y: 27

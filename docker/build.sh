@@ -11,9 +11,17 @@ main () {
     image_build;
 }
 
+tag=registry.gitlab.com/raai_planning_workshop/planning_with_thunder:latest
+
+if [ ! -z "$1" ]
+  then
+    tag=$1
+fi
+
+
 image_build () {
-    echo ${green}"Building image from Dockerfile: "${reset_color};    
-    docker build -f ./Dockerfile . -t registry.gitlab.com/raai_planning_workshop/planning_with_thunder:latest;
+    echo ${green}"Building image from Dockerfile with tag: ${tag}"${reset_color};    
+    docker build -f ./Dockerfile . -t $tag;
 }
 
 main "$@"; exit
