@@ -10,7 +10,7 @@ TODO
 
 - [pnc_task_msgs/PlanningTask](./../msgs/pnc_task_msgs/msg/PlanningTask.msg) - сообщение с задачей планировани. Публикуется в топик `/planning_node/task`. Сообщение содержит информацию о начальной, конечной точке планирования, а также карте занятости (nav_msgs/OccupancyGrid).
 
-Карта занятости предстовляет собой сообщение типа [nav_msgs/OccupancyGrid](http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/OccupancyGrid.html). В поле `data` записывается значение _занятости_ ячейки от 0 до 100. Принято следующее соглашение: <br>
+Карта занятости представляет собой сообщение типа [nav_msgs/OccupancyGrid](http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/OccupancyGrid.html). В поле `data` записывается значение _занятости_ ячейки от 0 до 100. Принято следующее соглашение: <br>
     __0-49__: Ячейка свободна <br>
     __50__: Неизвестная ячейка <br>
     __51-100__: Ячейка-препятствие
