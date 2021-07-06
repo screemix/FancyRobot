@@ -1,0 +1,10 @@
+{
+  velocity: 2, 
+  resolution: 0.5,
+  using_AerialMapDisplay: True,
+  debug_mode: False,
+  way_points_in_UTM: False,
+  sh_mode: False,
+  gear: 1,
+  rpm: 1800
+}

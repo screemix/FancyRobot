@@ -1,0 +1,69 @@
+<launch>
+
+    <arg name="odometry" default="odometry" />
+    <arg name="control_command" default="/control_node/mov_ctrl_cmd" />
+    <arg name="trajectory" default="/planning_node/trajectory" />
+
+    <arg name="route" default="/route_creator_node/route" />
+
+    <arg name="occupancy_grid" default="occupancy/accumulated" />
+    <arg name="occ_grid_params" default="/occupancy_grid_accumulated" />
+    <arg name="gis_rtk_waypoints" default="/gis_rtk/waypoints" />
+
+    <arg name="fixed_frame" default="local_map" />
+    <arg name="robot_frame_id" default="isns_link" />
+
+    <rosparam param="/pnc/occ_grid_params" subst_value="True">$(arg occ_grid_params)</rosparam>
+    <rosparam param="/pnc/is_simulation_mode" subst_value="True"> false</rosparam>
+    <rosparam param="/pnc/is_lib_logging_to_file" subst_value="True"> false</rosparam>
+
+    <!-- Planning -->
+    <rosparam command="load" file="./launch/config/planning.yaml" ns="planning_node" />
+    <node pkg="pnc_ros_pkg" name="planning_node" type="planning_node">
+        <param name="fixed_frame" value="$(arg fixed_frame)" />
+        <remap from="odometry" to="$(arg odometry)" />
+        <remap from="occupancy_grid" to="$(arg occupancy_grid)" />
+        <remap from="route" to="$(arg route)" />
+    </node>
+
+    <!-- Planner -->
+    <rosparam command="load" file="./launch/config/planner.yaml" ns="planner_sb_node" />
+    <node pkg="pnc_ros_pkg" name="planner_sb_node" type="planner_sb_node" output="log">
+    </node>
+
+
+    <!-- Control -->
+    <rosparam command="load" file="./launch/config/control.yaml" ns="control_node" />
+    <node pkg="pnc_ros_pkg" name="control_node" type="control_node">
+        <remap from="odometry" to="$(arg odometry)" />
+        <remap from="occupancy_grid" to="$(arg occupancy_grid)" />
+        <remap from="control_command" to="$(arg control_command)" />
+        <remap from="/planning_node/trajectory" to="$(arg trajectory)" />
+    </node>
+
+    <!-- Controller -->
+    <rosparam command="load" file="./launch/config/controller.yaml" ns="controller_node" />
+    <node pkg="pnc_ros_pkg" name="controller_node" type="controller_node">
+    </node>
+
+    <!-- Routing -->
+    <arg name="global_frame" default="map" />
+    <rosparam command="load" file="./launch/config/route_creator.yaml" ns="route_creator_node" />
+    <node pkg="route_creator_pkg" name="route_creator_node" type="route_creator.py" output="screen">
+        <remap from="route" to="$(arg route)" />
+        <remap from="gis_rtk_waypoints" to="$(arg gis_rtk_waypoints)" />
+        <param name="fixed_frame_id" value="$(arg fixed_frame)" />
+        <param name="global_frame_id" value="$(arg global_frame)" />
+        <param name="robot_frame_id" value="$(arg robot_frame_id)" />
+    </node>
+
+    <!-- RTP to Hunter cmd converter -->
+    <arg name="hunter_control_cmd" default="/cmd_vel" />
+
+    <node pkg="rtp_to_hunter_cmd_converter" name="rtp_to_hunter_cmd_converter" type="rtp_to_hunter_cmd_converter.py">
+        <remap from="hunter_control_cmd" to="$(arg hunter_control_cmd)" />
+        <remap from="control_command" to="$(arg control_command)" />
+    </node>
+
+
+</launch>

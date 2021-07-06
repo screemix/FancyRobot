@@ -1,0 +1,18 @@
+{
+  allowable_distance_to_path: 50.0, 
+  control_command_time_delay: 0.5, 
+  control_map_time_delay: 1.5,
+  control_position_time_delay: 1.5, 
+  fixed_frame_id: 'local_map', 
+  frequency: 50, 
+  is_BT_mode: false,
+  is_checking_dyn_obstacles: true, 
+  min_obstacles_velocity: 0.5, 
+  safe_estop_distance: 2.0,
+  safe_stop_distance: 4.0, 
+  stop_deceleration: 2.0, 
+  time_to_predict_obstacles: 3,
+  robot_length: 1.0,
+  robot_width: 1.0,
+  dynamic_obst_safety_buffer: 0.0
+}

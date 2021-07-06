@@ -1,0 +1,16 @@
+{
+  is_benchmark_mode: false, 
+  max_planning_time: 0.19, 
+  num_of_threads: 4,
+  num_of_trees: 5, 
+  planner_frequency: 10, 
+  show_planner_additional_debug_info: false,
+  turn_radius: 2.0, 
+  valid_state_sampler: 1,
+  using_goal_region: true,
+  dist_threshold: 0.2,
+  yaw_threshold: 90,
+  base_planner_name: "RRTConnect",     # RRTConnect, ABITstar
+  kinematic_planner_name: "pRRT"     # pRRT,       AITstar
+
+}

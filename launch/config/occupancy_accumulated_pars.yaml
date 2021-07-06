@@ -1,0 +1,18 @@
+hard_buffer_value: 0.8
+hard_buffer_width: 0.4
+kernel_size: 7
+occ_free: 0.4
+occ_obst: 0.95
+occ_prior: 0.5
+publish_rate: 10
+queue_size: 5
+resolution: 0.2  # meters
+save_roi_xy: 120.0  # meters
+size_xy: 600  # cells
+safety_buffer: 3
+scale: -1.0
+soft_buffer_value: 0.6
+soft_buffer_width: 0.4
+upd_free_count: 2
+upd_obst_count: 10
+use_polygons: true

@@ -1,0 +1,18 @@
+<launch>
+
+    <arg name="odometry" default="odometry" />
+
+    <arg name="fixed_frame" default="local_map" />
+    <arg name="robot_frame_id" default="isns_link" />
+
+    <arg name="lidar_topic" default="/vlp16/velodyne_points" />
+
+    <!-- Transform broadcaster of odometry frame -->
+    <include file="$(find odom_tf_broadcaster)/launch/odom_tf_broadcaster.launch">
+        <arg name="robot_frame" value="$(arg robot_frame_id)" />
+        <arg name="odometry" value="$(arg odometry)" />
+        <arg name="publish_navsatfix_from_tf" value="false" />
+    </include>
+
+</launch>
+
