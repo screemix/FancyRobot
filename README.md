@@ -67,7 +67,8 @@ tar -Jxf CoppeliaSim_Edu_V4_2_0_Ubuntu20_04.tar.xz --directory=/path/to/your/fol
 # show active topic list
 rostopic list
     ...
-    /radar/points
+    /vlp16/velodyne_points
+    /cmd_vel
     /odometry
    ...
 ``` 
@@ -105,6 +106,16 @@ roslaunch ~/launch/main.launch
 
 ### Запуск среды визуализации RViz и управление платформой
 
+В терминале выполнить команду 
+rviz
+
+Открыть конфигурационный файл ./launch/config/rviz_config.rviz
+
+Кликая с помощью инструмента "2D Nav Goal" можно задать ключевые точки маршрута, которые должен посетить робот. После выбора инструмента "Publish Point" можно кликнуть по карте и отправить маршрут на выполнение.
+
+Пример прохождения маршрута роботом
+
+![RViz example](rviz.png)
 
 ## Управление башней-опрыскивателем Thunder
 
