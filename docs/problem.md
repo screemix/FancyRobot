@@ -8,12 +8,12 @@ TODO
 
 На вход алгоритму планирования поступают следующие сообщения:
 
+- [pnc_task_msgs/PlanningTask](./../msgs/pnc_task_msgs/PlanningTask.msg) - сообщение с задачей планировани. Публикуется в топик `/planning_node/task`. Сообщение содержит информацию о начальной, конечной точке планирования, а также карте занятости (nav_msgs/OccupancyGrid).
+
 - [nav_msgs/OccupancyGrid](http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/OccupancyGrid.html) - сообщение с картой занятости. Публикуется в топик `/occupancy/accumulated`. В поле `data` записывается значение _занятости_ ячейки от 0 до 100. Принято следующее соглашение: <br>
     __0-49__: Ячейка свободна <br>
     __50__: Неизвестная ячейка <br>
     __51-100__: Ячейка-препятствие
-
-- [nav_msgs/Odometry](http://docs.ros.org/en/noetic/api/nav_msgs/html/msg/Odometry.html) - сообщение с позицией и ориентацией робота. Публикуется в топик `/odometry`.
 
 ## Выходные данные
 
@@ -21,9 +21,7 @@ TODO
 
 - [thunder_msgs/ThunderCommand](./../msgs/thunder_msgs/msg/ThunderControl.msg) - сообщение с командой управление башней-опрыскивателем. Публикуется в топик `/thunder/control_cmd`. Более подробное описание [ниже](#управление-башней-опрыскивателем-thunder).
 
-- TODO
-
-- TODO
+- [rtp_msgs/PathStamped](./../msgs/rtp_msgs/PathStamped.msg) - сообщение с найденной траекторий движения. Публикуется в топик `/planner_sb_node/trajectory`. 
 
 ### Управление башней-опрыскивателем Thunder
 
