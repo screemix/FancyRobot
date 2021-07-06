@@ -149,7 +149,7 @@ rviz
     docker commit my_command_tag:latest
     ```
 
-4. Сохранить докер образ в архив:
+4. Сохранить docker-образ в архив:
     ```bash
     docker save my_command_tag:latest > my_commang_tag.tar
     ```
