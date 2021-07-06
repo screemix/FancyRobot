@@ -5,9 +5,9 @@
     <arg name="occ_grid_params" default="/occupancy_grid_accumulated" />
     <arg name="fixed_frame" default="local_map" />
     <arg name="robot_frame_id" default="isns_link" />
-    <arg name="lidar_topic" default="/vlp16/velodyne_points" />
+    <arg name="lidar_topic" default="/radar/points" />
 
-    <node pkg="tf2_ros" type="static_transform_publisher" name="isns_vlp16" args="0.3 0 0.15 0 0 0 isns_link vlp16" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="isns_radar" args="0.3 0 0.15 0 0 0 isns_link radar" />
 
     <group>
 

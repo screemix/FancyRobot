@@ -64,17 +64,17 @@ tar -Jxf CoppeliaSim_Edu_V4_2_0_Ubuntu20_04.tar.xz --directory=/path/to/your/fol
 
 После этого можно запускать сцену. Проверить правильность настройки можно выполнив следующую команду:
 ```bash
-# show active topic list
+# показать список активных топиков
 rostopic list
     ...
-    /vlp16/velodyne_points
-    /cmd_vel
+    /radar/points
     /odometry
+    /cmd_vel
    ...
 ``` 
 Среда симуляции начнет публиковать топики с данными одометрии и облаками точек.
 
-![CoppeliaSim example](Cop.png)
+![CoppeliaSim example](docs/coppelia.png)
 
 ### Запуск предустановленных компонент в docker-контейнере
 
@@ -87,10 +87,10 @@ docker pull registry.gitlab.com/raai_planning_workshop/planning_with_thunder:lat
 
 Для запуска и входа в контейнер предоставляются готовые скрипты в папке [./docker](./docker):
 ```bash
-# start container
+# запуск контейнера
 ./docker/start.sh
 
-# get into container
+# вход в контейнер
 ./docker/into.sh 
 ```
 
@@ -113,11 +113,11 @@ rviz
 
 Открыть конфигурационный файл ./launch/config/rviz_config.rviz.
 
-Кликая с помощью инструмента "2D Nav Goal" задаются ключевые точки маршрута, которые должен посетить робот. После выбора инструмента "Publish Point", кликнув по карте маршрут отправляется на выполнение.
+Кликая с помощью инструмента `2D Nav Goal` задаются ключевые точки маршрута, которые должен посетить робот. После выбора инструмента `Publish Point`, кликнув по карте маршрут отправляется на выполнение.
 
-Пример прохождения маршрута роботом
+Пример прохождения маршрута роботом:
 
-![RViz example](rviz.png)
+![RViz example](docs/rviz.png)
 
 ## Управление башней-опрыскивателем Thunder
 
@@ -144,3 +144,30 @@ msg.control_mode = 1 * 4 + 1 * 2 + 1 * 1;
 ...
 
 ```
+
+## Выдача собранного кода
+
+Передача и размещение разработанного Вами кода будет осуществляться с помощью собранного docker-образа. 
+
+Порядок работы следующий:
+
+1. Собрать свой docker-образ с помощью подготовленного скрипта [build.sh](./docker/build.sh):
+    ```bash
+    # первый аргумент передается в качестве тега docker-образу
+    ./docker/build.sh my_command_tag
+    ```
+2. Запустить ваш контейнер, замаунтить в него ваш исходный код (только папку `catkin_ws/src`), собрать его с помощью команды:
+    ```bash
+    # сборка кодав режиме Release и его установка
+    catkin_make -DCMAKE_BUILD_TYPE=Release install
+    ```
+
+3. Не останавливая контейнер закоммитить образ (тогда в нем останутся собранные приложения):
+    ```bash
+    docker commit my_command_tag:latest
+    ```
+
+4. Сохранить докер образ в архив:
+    ```bash
+    docker save my_command_tag:latest > my_commang_tag.tar
+    ```
