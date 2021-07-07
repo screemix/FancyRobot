@@ -3,14 +3,13 @@
 cd "$(dirname "$0")";
 cd ..
 root_dir=$PWD
-cd launch
-launch_dir=$PWD
-# path to folder with source code by default
-
 if [ ! -d "$root_dir/workspace/src" ]
 then
     mkdir -p workspace/src
 fi
+cd launch
+launch_dir=$PWD
+# path to folder with source code by default
 
 cd $root_dir/workspace/src
 workspace_dir=$PWD
