@@ -27,10 +27,10 @@
     </node>
 
     <!-- Planner -->
-    <rosparam command="load" file="./launch/config/planner.yaml" ns="planner_sb_node" />
+<!--    <rosparam command="load" file="./launch/config/planner.yaml" ns="planner_sb_node" />
     <node pkg="pnc_ros_pkg" name="planner_sb_node" type="planner_sb_node" output="log">
     </node>
-
+-->
 
     <!-- Control -->
     <rosparam command="load" file="./launch/config/control.yaml" ns="control_node" />
